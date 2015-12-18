@@ -1,0 +1,14 @@
+[user]
+	name = yamato_tanaka
+	email = a.niger.333141592653589793@gmail.com
+[credential]
+	helper = osxkeychain
+[core]
+	excludesfile = /Users/k13082kk/.gitignore_global
+[color]
+	ui = true
+[alias]
+	graph = log --graph --date-order --all --pretty=format:'%h %Cred%d %Cgreen%ad %Cblue%cn %Creset%s' --date=short
+    co = checkout
+[push]
+	default = simple
