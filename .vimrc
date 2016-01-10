@@ -1,5 +1,6 @@
 set nocompatible        "vi互換を削除
 
+filetype off            "ファイルタイプ自動対応をオフ
 
 set encoding=utf-8      "vimの内部文字コード
 set fileencoding=utf-8  "書き込み文字コード
@@ -39,8 +40,8 @@ set shellslash          "Windows環境でパスの円マークをバックスラ
 noremap j gj
 noremap k gk
 noremap <S-h>   ^
-noremap <S-j>   }
-noremap <S-k>   {
+"noremap <S-j>   }
+"noremap <S-k>   {
 noremap <S-l>   $
 noremap : ;
 noremap ; :
@@ -83,28 +84,37 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "統合インタフェース
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-noremap <silent> <Space>ub :<C-u>Unite buffer<CR>
-noremap <silent> <Space>um :<C-u>Unite buffer file_mru<CR>
-noremap <silent> <Space>uu :<C-u>Unite file<CR>
-noremap <silent> <Space>ut :<C-u>Unite tab<CR>
+nnoremap <silent> <Space>ub :<C-u>Unite buffer<CR>
+nnoremap <silent> <Space>um :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> <Space>uu :<C-u>Unite file<CR>
+nnoremap <silent> <Space>ut :<C-u>Unite tab<CR>
+
 
 "非同期処理
 NeoBundle 'Shougo/vimproc', {
             \ 'build' : {
-            \     'windows' : 'make -f make_mingw32.mak',
-            \     'cygwin' : 'make -f make_cygwin.mak',
-            \     'mac' : 'make -f make_mac.mak',
-            \     'unix' : 'make -f make_unix.mak',
-            \    },
+            \   'windows' : 'make -f make_mingw32.mak',
+            \   'cygwin' : 'make -f make_cygwin.mak',
+            \   'mac' : 'make -f make_mac.mak',
+            \   'unix' : 'make -f make_unix.mak',
+            \   },
             \ }
 
+"vim-shell
+NeoBundleLazy 'Shougo/vimshell', {
+            \ 'depends' : 'Shougo/vimproc',
+            \ 'autoload' : {
+            \   'commands' : [{ 'name' : 'VimShell', 'complete' : 'customlist,vimshell#complete'},
+            \                 'VimShellExecute', 'VimShellInteractive',
+            \                 'VimShellTerminal', 'VimShellPop'],
+            \   'mappings' : ['<Plug>(vimshell_switch)']
+            \ }}
+nnoremap <silent> <Space>ss :<C-u>VimShell<CR>
+nnoremap <silent> <Space>sp :<C-u>VimShellPop<CR>
+
+
 "補完
-if has('lua')
-    NeoBundleLazy 'Shougo/neocomplete.vim', {
-                \ 'depends' : 'Shougo/vimproc',
-                \ 'autoload' : { 'insert' : 1,}
-                \ }
-endif
+NeoBundle 'Shougo/neocomplete.vim'
 let g:neocomplete#enable_at_startup               = 1
 let g:neocomplete#auto_completion_start_length    = 3
 let g:neocomplete#enable_ignore_case              = 1
@@ -132,8 +142,42 @@ NeoBundle 'vim-scripts/rdark'
 
 NeoBundle 'ujihisa/unite-colorscheme'
 
+
 "閉じ括弧自動化
 NeoBundle 'Townk/vim-autoclose'
+
+
+"プログラムの実行
+NeoBundle 'thinca/vim-quickrun'
+let g:quickrun_config = {
+            \   "_" : {
+            \       "runner" : "vimproc",
+            \       "runner/vimproc/updatetime" : 60,
+            \       "outputter/buffer/split" : ":botright",
+            \       "outputter/buffer/close_on_empty" : 1
+            \   },
+            \}
+"保存してクイックラン実行
+nnoremap <silent> \r :write<CR>:QuickRun<CR> 
+"クイックラン停止
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+
+"quickrun-hook 集
+NeoBundle "osyo-manga/shabadou.vim"
+
+"シンタックスチェック
+NeoBundle "osyo-manga/vim-watchdogs"
+"quickrunの設定を引用
+"call watchdogs#setup(g:quickrun_config)
+" 書き込み後にシンタックスチェックを行う
+let g:watchdogs_check_BufWritePost_enable = 1
+" こっちは一定時間キー入力がなかった場合にシンタックスチェックを行う
+let g:watchdogs_check_CursorHold_enable = 1
+nnoremap \sc :WatchdogsRun
+
+"エラー箇所のハイライト
+NeoBundle "jceb/vim-hier"
+
 
 
 "HTML plugin
@@ -157,6 +201,14 @@ call neobundle#end()
 "未インストールプラグインを起動時にインストール
 NeoBundleCheck
 
+
+"分割ファイルの読み込み
+"set rtp+=$HOME/dotfiles/.vim/
+"runtime! after/ftplugin/*.vim
+
+
+"カラースキームの設定
 colorscheme jellybeans
 "colorscheme railscasts 
+
 filetype plugin indent on

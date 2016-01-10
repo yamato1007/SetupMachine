@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/k13082kk/.vim'
+let g:netrw_dirhist_2='/Users/k13082kk/Documents/laboratory/rcrs/.git'
+let g:netrw_dirhist_3='/Users/k13082kk/.vim'
+let g:netrw_dirhist_4='/Users/k13082kk/Documents/learning/haskell/helloworld'
+let g:netrw_dirhist_5='/Users/k13082kk/.vim'
+let g:netrw_dirhist_6='/Users/k13082kk/Documents/learning/haskell/03_function'
