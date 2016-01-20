@@ -4,5 +4,14 @@ export PATH=$PATH:$HOME/.cabal/bin
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
+
+#nvm.shを実行
+#nvmはnode.jsのバージョン管理ソフト
+if [[ -s ~/.nvm/nvm.sh ]];
+    then source ~/.nvm/nvm.sh
+fi 
+
+
 #.bashrcを読み込む
 test -r ~/.bashrc && . ~/.bashrc
+
