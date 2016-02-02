@@ -67,6 +67,13 @@ nnoremap st :<C-u>tabnew<CR>
 nnoremap sn gt
 nnoremap sp gT
 
+
+
+" filetype関連
+" vimにcoffeeファイルタイプを認識させる
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+
+
 "NeoBundle
 if has('vim_starting')
     set nocompatible
@@ -182,6 +189,7 @@ NeoBundle "jceb/vim-hier"
 
 "HTML plugin
 "NeoBundle 'mattn/emmet-vim'
+
 
 
 "Vim-LaTeX
