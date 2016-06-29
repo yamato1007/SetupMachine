@@ -204,6 +204,14 @@ let g:Tex_FormatDependency_pdf = 'dvi,pdf'
 let g:Tex_ViewRule_pdf = '/usr/bin/open -a TeXShop.app'
 
 
+"Twitter
+NeoBundle 'TwitVim'
+let twitvim_browser_cmd = 'open' " for Mac
+let twitvim_force_ssl = 1 
+let twitvim_count = 40
+
+
+
 "NeoBundle設定の終了
 call neobundle#end()
 "未インストールプラグインを起動時にインストール
