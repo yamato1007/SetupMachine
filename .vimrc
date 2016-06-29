@@ -157,6 +157,9 @@ NeoBundle 'Townk/vim-autoclose'
 "プログラムの実行
 NeoBundle 'thinca/vim-quickrun'
 let g:quickrun_config = {
+            \   "cpp" : {
+            \       "cmdopt" : "-std=c++14"
+            \   },
             \   "_" : {
             \       "runner" : "vimproc",
             \       "runner/vimproc/updatetime" : 60,
