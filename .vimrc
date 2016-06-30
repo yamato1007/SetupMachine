@@ -213,7 +213,7 @@ let twitvim_browser_cmd = 'open'
 let twitvim_force_ssl = 1 
 let twitvim_count = 40
 nnoremap <Space>tp :<C-u>PosttoTwitter<CR>
-nnoremap <Space>tf :<C-u>FriendsTwitter<CR><C-w>j
+nnoremap <Space>tl :<C-u>FriendsTwitter<CR><C-w>j
 nnoremap <Space>tu :<C-u>UserTwitter<CR><C-w>j
 nnoremap <Space>tr :<C-u>RepliesTwitter<CR><C-w>j
 nnoremap <Space>tn :<C-u>NextTwitter<CR>
