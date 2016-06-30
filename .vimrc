@@ -209,10 +209,18 @@ let g:Tex_ViewRule_pdf = '/usr/bin/open -a TeXShop.app'
 
 "Twitter
 NeoBundle 'TwitVim'
-let twitvim_browser_cmd = 'open' " for Mac
+let twitvim_browser_cmd = 'open' 
 let twitvim_force_ssl = 1 
 let twitvim_count = 40
-
+nnoremap <Space>tp :<C-u>PosttoTwitter<CR>
+nnoremap <Space>tf :<C-u>FriendsTwitter<CR><C-w>j
+nnoremap <Space>tu :<C-u>UserTwitter<CR><C-w>j
+nnoremap <Space>tr :<C-u>RepliesTwitter<CR><C-w>j
+nnoremap <Space>tn :<C-u>NextTwitter<CR>
+autocmd FileType twitvim call s:twitvim_my_settings()
+function! s:twitvim_my_settings()
+    set nowrap
+endfunction
 
 
 "NeoBundle設定の終了
