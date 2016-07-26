@@ -1,2 +1,8 @@
 let g:netrw_dirhistmax  =10
+<<<<<<< HEAD
 let g:netrw_dirhist_cnt =0
+=======
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/Users/k13082kk/Documents/laboratory/rcrs/experiment/clients'
+let g:netrw_dirhist_2='/Users/k13082kk/dotfiles/.vim/ftplugin'
+>>>>>>> fa7bc22c22e5ef82cf39eff09410962c7b4af9e8
