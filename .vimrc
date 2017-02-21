@@ -13,6 +13,7 @@ set tabstop=4           "タブ文字の幅
 set shiftwidth=4        "自動インデントの幅
 set softtabstop=4       "バックスペースで消す空白文字数
 set autoindent          "自動インデント
+set breakindent         "折り返しもインデントを有効化
 set smartindent         "改行前の文字によって改行時にインデント修正
 
 set ruler               "カーソル位置表示（右下）
@@ -40,14 +41,15 @@ set incsearch           "検索入力中に次にマッチするテキストを�
 
 
 "キーマップ
+noremap : ;
+noremap ; :
 noremap j gj
 noremap k gk
 noremap <S-h>   ^
 "noremap <S-j>   }
 "noremap <S-k>   {
-noremap <S-l>   $
-noremap : ;
-noremap ; :
+noremap <S-l>   u
+noremap <S-y> y$
 nnoremap <CR> A<CR><ESC>
 nnoremap == gg=G''
 
@@ -55,6 +57,7 @@ nnoremap == gg=G''
 nnoremap s <Nop>
 nnoremap ss :split<CR>
 nnoremap sv :vsplit<CR>
+nnoremap sn :new<CR>
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
@@ -101,6 +104,7 @@ nnoremap <silent> <Space>ub :<C-u>Unite buffer<CR>
 nnoremap <silent> <Space>um :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> <Space>uu :<C-u>Unite file<CR>
 nnoremap <silent> <Space>ut :<C-u>Unite tab<CR>
+nnoremap <silent> <Space>un :<C-u>Unite file/new<CR>
 
 
 "非同期処理
@@ -137,30 +141,24 @@ let g:neocomplcache_enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
             \ 'default' : ''
             \ }
-let g:neocomplete#use_vimproc = 1
+
 " Plugin key-mappings.
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
 " Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    return neocomplcache#smart_close_popup() . "\<CR>"
-endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
-"preview window を閉じない
-let g:neocomplete#enable_auto_close_preview = 0
 
 
 "英単語補完
@@ -255,9 +253,17 @@ elseif has("unix")
     let g:Tex_ViewRule_pdf = 'evince'
 endif
 
+"Web API
+"NeoBundle 'mattn/webapi-vim'
+
+"Open Browser
+"NeoBundle 'open-browser.vim'
+
 
 "Twitter
-NeoBundle 'TwitVim'
+"NeoBundle 'TwitVim'
+NeoBundle 'https://github.com/vim-scripts/TwitVim.git'
+"NeoBundle 'https://github.com/basyura/twibill.vim.git'
 let twitvim_browser_cmd = 'open' 
 let twitvim_force_ssl = 1 
 let twitvim_count = 40
