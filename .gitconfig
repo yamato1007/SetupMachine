@@ -1,10 +1,10 @@
 [user]
-	name = yamato_tanaka
-	email = a.niger.333141592653589793@gmail.com
+	name = Yamato Tanaka
+	email = violinvitali@gmail.com
 [credential]
-	helper = osxkeychain
+#	helper = osxkeychain # for Mac OS
 [core]
-	excludesfile = /Users/k13082kk/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = vim
 [color]
 	ui = true
