@@ -75,18 +75,12 @@ nnoremap sp gT
 
 "検索関連
 nnoremap / /\v\c
-nnoremap ? ?\v
+nnoremap ? ?\v\c
+vnoremap n "zy:let @/ = @z<CR>n
 
-" filetype関連
-" vimにcoffeeファイルタイプを認識させる
-au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
-
-" Recommended key-mappings.
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "カラースキームの設定
-colorscheme jellybeans
+"colorscheme jellybeans
 "colorscheme railscasts 
 
 filetype plugin indent on
