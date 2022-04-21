@@ -1,4 +1,4 @@
-# Build my client machine
+# Setup my client machine
 This tool setup my local machine.
 This is only for me, not the general public.
 
