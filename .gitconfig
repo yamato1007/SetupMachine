@@ -12,5 +12,10 @@
 [push]
 	default = simple
 [fetch]
-        prune = true
+	prune = true
+[gitreview]
+	username = {{ gitreview_username }}
+[user]
+	name = {{ name }}
+	email = {{ mail_address }}
 

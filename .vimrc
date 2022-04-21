@@ -1,3 +1,5 @@
+filetype plugin indent on
+
 set nocompatible        "vi互換を削除
 
 filetype off            "ファイルタイプ自動対応をオフ
@@ -42,7 +44,7 @@ set incsearch           "検索入力中に次にマッチするテキストを�
 
 "キーマップ
 "noremap : ;
-noremap ; :
+"noremap ; :
 noremap j gj
 noremap k gk
 noremap <S-h> ^
@@ -78,9 +80,6 @@ nnoremap / /\v\c
 nnoremap ? ?\v\c
 vnoremap n "zy:let @/ = @z<CR>n
 
-
 "カラースキームの設定
 "colorscheme jellybeans
 "colorscheme railscasts 
-
-filetype plugin indent on
