@@ -4,6 +4,7 @@ email:
 install_packages:
   - vim
   - git
+  - git-review
   - ansible
 install_pip_packages:
   - tox
