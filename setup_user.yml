@@ -1,0 +1,28 @@
+- name: setup a user
+  hosts: localhost
+  become: no
+  vars_files:
+    - vars.yml
+    - overriding_vars.yml
+  tasks:
+
+    - name: "pip packages are installed locally : {{ install_pip_packages }}"
+      become: no
+      pip:
+        name: "{{ item }}"
+        extra_args: --user
+      loop:
+        - "{{ install_pip_packages }}"
+
+    - name: copy all dot files
+      synchronize:
+        src: files/
+        dest: ~/
+        recursive: yes
+
+    - name: copy all template files
+      template:
+        src: "{{ item }}"
+        dest: ~/
+      with_fileglob:
+        - "templates/.*"

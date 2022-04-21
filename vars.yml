@@ -1,0 +1,10 @@
+gitreview_username:
+full_name:
+email:
+install_packages:
+  - vim
+  - git
+  - ansible
+install_pip_packages:
+  - tox
+  - ansible-lint

@@ -1,0 +1,17 @@
+- name: setup a machine and a user
+  hosts: localhost
+  become: yes
+  become_method: sudo
+  vars_files:
+    - vars.yml
+    - overriding_vars.yml
+  tasks:
+
+    - name: "packages are installed : {{ install_packages }}"
+      become: yes
+      package: 
+        name: "{{ install_packages }}"
+        state: latest
+
+- name: setup a user
+  import_playbook: setup_user.yml

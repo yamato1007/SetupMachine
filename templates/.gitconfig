@@ -16,6 +16,6 @@
 [gitreview]
 	username = {{ gitreview_username }}
 [user]
-	name = {{ name }}
-	email = {{ mail_address }}
+	name = {{ full_name }}
+	email = {{ email }}
 
