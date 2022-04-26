@@ -1,3 +1,4 @@
+---
 - name: setup a machine and a user
   hosts: localhost
   become: yes

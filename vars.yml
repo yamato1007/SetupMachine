@@ -9,3 +9,8 @@ install_packages:
 install_pip_packages:
   - tox
   - ansible-lint
+install_vim_plugins:
+  - author: tpope
+    name: fugitive
+    source: https://tpope.io/vim/fugitive.git
+    method: git

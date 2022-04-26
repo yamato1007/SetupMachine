@@ -1,3 +1,4 @@
+---
 - name: setup a user
   hosts: localhost
   become: no
@@ -26,3 +27,7 @@
         dest: ~/
       with_fileglob:
         - "templates/.*"
+
+    - name: install vim plugins
+      include_tasks: setup_vim_plugin.yml
+      loop: "{{ install_vim_plugins }}"

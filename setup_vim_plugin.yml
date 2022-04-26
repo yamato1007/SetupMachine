@@ -1,0 +1,16 @@
+---
+- name: "vim plugins directory: ~/.vim/pack/{{ item.author }}/start/{{ item.name }}"
+  file:
+    state: directory
+    path: "~/.vim/pack/{{ item.author }}/start/{{ item.name }}"
+
+- name: "install a plugin from {{ item.source }}"
+  git:
+    repo: "{{ item.source }}"
+    dest: "~/.vim/pack/{{ item.author }}/start/{{ item.name }}"
+    clone: yes
+    update: yes
+  when: item.method == "git"
+
+- name: create helptag file
+  command: "vim -u NONE -c 'helptags ~/.vim/pack/{{ item.author }}/start/{{ item.name }}/doc' -c q"
