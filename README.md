@@ -1,6 +1,6 @@
-# Setup my client machine
-This tool setup my local machine.
-This is only for me, not the general public.
+# Setup my own client machine or user
+This tool setup my own local machine or user.
+This is only for me, not for the general public.
 
 # How to use
 1. copy and edit a variable file
