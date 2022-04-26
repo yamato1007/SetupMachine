@@ -29,5 +29,5 @@
         - "templates/.*"
 
     - name: install vim plugins
-      include_tasks: setup_vim_plugin.yml
+      include_tasks: tasks/setup_vim_plugin.yml
       loop: "{{ install_vim_plugins }}"
