@@ -13,9 +13,10 @@
 	default = simple
 [fetch]
 	prune = true
+[url "git@github.com:"]
+    pushInsteadOf = https://github.com/
 [gitreview]
 	username = {{ gitreview_username }}
 [user]
 	name = {{ full_name }}
 	email = {{ email }}
-
