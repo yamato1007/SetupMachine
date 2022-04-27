@@ -5,8 +5,8 @@ This is only for me, not for the general public.
 # How to use
 1. copy and edit a variable file
 
-        # cp vars.yml overriding_vars.yml
-        # vim overriding_vars.yml
+        $ cp vars.yml overriding_vars.yml
+        $ vim overriding_vars.yml
 
 2. apply
 
