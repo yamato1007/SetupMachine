@@ -10,7 +10,7 @@ set fileencodings=utf-8,iso-2022jp,euc-jp,cp932     "読み込み文字コード
 
 set number              "行番号
 
-"set expandtab           "タブを空白文字に
+set expandtab           "タブを空白文字に
 set tabstop=4           "タブ文字の幅
 set shiftwidth=4        "自動インデントの幅
 set softtabstop=4       "バックスペースで消す空白文字数

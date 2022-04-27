@@ -1,22 +1,22 @@
 [credential]
-#	helper = osxkeychain # for Mac OS
+#    helper = osxkeychain # for Mac OS
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = vim
+    excludesfile = ~/.gitignore_global
+    editor = vim
 [color]
-	ui = true
+    ui = true
 [alias]
-	graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	grapha = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	co = checkout
+    graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    grapha = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    co = checkout
 [push]
-	default = simple
+    default = simple
 [fetch]
-	prune = true
+    prune = true
 [url "git@github.com:"]
     pushInsteadOf = https://github.com/
 [gitreview]
-	username = {{ gitreview_username }}
+    username = {{ gitreview_username }}
 [user]
-	name = {{ full_name }}
-	email = {{ email }}
+    name = {{ full_name }}
+    email = {{ email }}
