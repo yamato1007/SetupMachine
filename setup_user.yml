@@ -31,3 +31,9 @@
     - name: install vim plugins
       include_tasks: tasks/setup_vim_plugin.yml
       loop: "{{ install_vim_plugins }}"
+
+    - name: configure bashrc
+      lineinfile:
+        path: ~/.bashrc
+        line: "{{ item }}"
+      loop: "{{ bashrc_configs }}"

@@ -14,3 +14,7 @@ install_vim_plugins:
     name: fugitive
     source: https://tpope.io/vim/fugitive.git
     method: git
+bashrc_configs:
+  - alias ll="ls -la"
+  - alias sl="ls"
+  - alias dc="cd"
