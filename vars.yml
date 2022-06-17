@@ -6,8 +6,9 @@ install_packages:
   - git
   - git-review
   - ansible
-install_pip_packages:
+install_user_pip_packages:
   - tox
+  - virtualenv
   - ansible-lint
 install_vim_plugins:
   - author: tpope

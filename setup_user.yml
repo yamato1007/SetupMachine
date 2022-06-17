@@ -7,13 +7,13 @@
     - overriding_vars.yml
   tasks:
 
-    - name: "pip packages are installed locally : {{ install_pip_packages }}"
+    - name: "pip packages are installed locally : {{ install_user_pip_packages }}"
       become: no
       pip:
         name: "{{ item }}"
         extra_args: --user
       loop:
-        - "{{ install_pip_packages }}"
+        - "{{ install_user_pip_packages }}"
 
     - name: copy all dot files
       synchronize:
