@@ -22,3 +22,4 @@ bashrc_configs:
   - alias ll="ls -la"
   - alias sl="ls"
   - alias dc="cd"
+ansible_python_interpreter: /usr/bin/python3
