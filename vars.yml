@@ -4,8 +4,7 @@ email:
 install_packages:
   - vim
   - git
-  - git-review
-  - ansible
+  - ansible-core
   - python3-pip
 install_user_pip_packages:
   - tox
@@ -13,6 +12,7 @@ install_user_pip_packages:
   - ansible-lint
   - flake8
   - black
+  - git-review
 install_vim_plugins:
   - author: tpope
     name: fugitive
